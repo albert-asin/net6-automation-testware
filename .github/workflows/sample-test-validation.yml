@@ -12,6 +12,11 @@ jobs:
         with:
           name: "samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json"
           json: ${{ secrets.CONFIGURATION }}
+      - uses: microsoft/variable-substitution@v1 
+        with:
+          files: '${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json'
+        env:
+          test: ${{ github.workspace }}
       - name: print file
         run: cat ${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json
       - name: Archive json

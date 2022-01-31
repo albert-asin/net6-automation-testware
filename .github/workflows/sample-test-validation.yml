@@ -19,4 +19,4 @@ jobs:
         with:
           name: test_config
           path: |
-            "samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json"
+            ${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json

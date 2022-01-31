@@ -5,26 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: TestConfiguration.Web
     steps:
-      - uses: actions/checkout@v2
-      - name: "Read file contents"
-        id: read_config
-        uses: andstor/file-reader-action@v1
+      - uses: actions/checkout@
+      - name: create-json
+        id: create-json
+        uses: jsdaniell/create-json@1.1.2
         with:
-          path: "${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json"
-      - name: File contents
-        run: echo "${ steps.read_config.outputs.contents }"
-      - name: overwritte configuration
-        uses: DamianReeves/write-file-action
-        with:
-          path: ${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json
-          contents: |
-            echo ${{ secrets.CONFIGURATION }}
-          write-mode: overwrite
-      - name: "Read file contents2"
-        id: read_config_two
-        uses: andstor/file-reader-action@v1
-        with:
-          path: "${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json"
-      - name: File contents2
-        run: echo "${ steps.read_config_two.outputs.contents }"
-     
+          name: "${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json"
+          json: ${{ secrets.CONFIGURATION }}

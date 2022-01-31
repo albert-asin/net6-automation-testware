@@ -10,7 +10,7 @@ jobs:
         id: create-json
         uses: jsdaniell/create-json@1.1.2
         with:
-          name: "${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json"
+          name: "samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json"
           json: ${{ secrets.CONFIGURATION }}
       - name: print file
         run: cat ${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json

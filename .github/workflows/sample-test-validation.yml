@@ -13,6 +13,7 @@ jobs:
           path: "${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json"
       - name: File contents
         run: echo "${ steps.read_config.outputs.contents }"
+        continue-on-error: true
       - name: overwritte configuration
         uses: DamianReeves/write-file-action@v1.0
         with:

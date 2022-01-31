@@ -13,8 +13,18 @@ jobs:
           path: "${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json"
       - name: File contents
         run: echo "${ steps.read_config.outputs.contents }"
-      - name: echo configuration
-        with: # Set the secret as an input
-          config: ${{ secrets.CONFIGURATION }}
-        run: echo ${config}
-
+      - name: overwritte configuration
+        uses: DamianReeves/write-file-action
+        with:
+          path: ${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json
+          contents: |
+            echo ${{ secrets.CONFIGURATION }}
+          write-mode: overwrite
+      - name: "Read file contents2"
+        id: read_config_two
+        uses: andstor/file-reader-action@v1
+        with:
+          path: "${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json"
+      - name: File contents2
+        run: echo "${ steps.read_config_two.outputs.contents }"
+     

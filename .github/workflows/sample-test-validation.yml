@@ -14,3 +14,9 @@ jobs:
           json: ${{ secrets.CONFIGURATION }}
       - name: print file
         run: cat ${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json
+      - name: Archive json
+        uses: actions/upload-artifact@v2
+        with:
+          name: test_config
+          path: |
+            ${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json"

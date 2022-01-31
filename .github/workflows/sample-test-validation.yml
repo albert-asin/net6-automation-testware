@@ -16,7 +16,7 @@ jobs:
         with:
           files: '${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json'
         env:
-          test: $CHROMEWEBDRIVER
+          test: $(CHROMEWEBDRIVER)
       - name: print file
         run: cat ${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json
       - name: Archive json

@@ -10,7 +10,7 @@ jobs:
         id: read_config
         uses: andstor/file-reader-action@v1
         with:
-          path: "samples/Testware.Samples.Selenium.Web/TestConfiguration.Web.json"
+          path: "${{ github.workspace }}/samples/Testware.Samples.Selenium.Web/TestConfiguration.Web.json"
       - name: File contents
         run: echo "${ steps.read_config.outputs.contents }"
       - name: echo configuration

@@ -1,0 +1,9 @@
+name: sample-test-validation
+on: push
+jobs:
+  test-sample-web:
+    runs-on: ubuntu-latest
+    environment: TestConfiguration.Web
+    steps:
+      - name: echo configuration
+        run: echo ${{ secrets.CONFIGURATION }}

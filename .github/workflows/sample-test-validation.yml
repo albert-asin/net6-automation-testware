@@ -14,4 +14,7 @@ jobs:
       - name: File contents
         run: echo "${ steps.read_config.outputs.contents }"
       - name: echo configuration
-        run: echo ${{ secrets.CONFIGURATION }}
+        with: # Set the secret as an input
+          config: ${{ secrets.SuperSecret }}
+        run: echo ${config}
+

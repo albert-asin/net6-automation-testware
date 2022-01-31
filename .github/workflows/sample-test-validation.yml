@@ -5,5 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: TestConfiguration.Web
     steps:
+      - uses: actions/checkout@v2
+      - name: "Read file contents"
+        uses: andstor/file-reader-action@v1
+        with:
+          path: "samples/Testware.Samples.Selenium.Web/TestConfiguration.Web.json"
       - name: echo configuration
         run: echo ${{ secrets.CONFIGURATION }}

@@ -12,7 +12,7 @@ jobs:
         with:
           path: "${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json"
       - name: File contents
-        run: echo "${ steps.read_config.outputs.contents }"
+        run: cat "${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json"
         continue-on-error: true
       - name: overwritte configuration
         uses: DamianReeves/write-file-action@v1.0
@@ -27,5 +27,5 @@ jobs:
         with:
           path: "${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json"
       - name: File contents2
-        run: echo "${ steps.read_config_two.outputs.contents }"
+        run: cat "${{ github.workspace }}/samples/TestWare.Samples.Selenium.Web/TestConfiguration.Web.json"
      

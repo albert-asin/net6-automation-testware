@@ -7,6 +7,9 @@ jobs:
     steps:
       - name: Ubuntu GitHub Actions environment variables List
         run: env
+      - shell: pwsh
+        run: |
+          echo $env:CHROMEWEBDRIVER
       - uses: actions/checkout@v2
       - name: create-json
         id: create-json

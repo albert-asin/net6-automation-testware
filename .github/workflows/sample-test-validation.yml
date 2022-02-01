@@ -5,14 +5,13 @@ jobs:
     runs-on: windows-2022
     environment: TestConfiguration.Web
     steps:
-      - name: Set the value
-        id: step_one
+      - name: "Set environmental variables"
         run: |
-          echo "action_state=yellow" >> $GITHUB_ENV
-      - name: Use the value
-        id: step_two
+          echo "PG_DATA_DIR=$HOME/data" >> $GITHUB_ENV
+
+      - name: "Can use environment variables"
         run: |
-          echo "${{ env.action_state }}" # This will output 'yellow'
+          echo "Working variable from variable: $PG_DATA_DIR"
       - name: Ubuntu GitHub Actions environment variables List
         run: env
       - shell: pwsh

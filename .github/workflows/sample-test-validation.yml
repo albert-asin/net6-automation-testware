@@ -5,6 +5,14 @@ jobs:
     runs-on: windows-2022
     environment: TestConfiguration.Web
     steps:
+      - name: Set the value
+        id: step_one
+        run: |
+          echo "action_state=yellow" >> $GITHUB_ENV
+      - name: Use the value
+        id: step_two
+        run: |
+          echo "${{ env.action_state }}" # This will output 'yellow'
       - name: Ubuntu GitHub Actions environment variables List
         run: env
       - shell: pwsh
